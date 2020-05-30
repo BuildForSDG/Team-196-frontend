@@ -1,11 +1,14 @@
-import app from './app';
+/* eslint-disable class-methods-use-this */
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './app';
 
-const startApp = async () => {
-  const header = document.querySelector('[data-app-name]');
-  if (!header) return;
+class Index extends React.Component {
+  render() {
+    return <App />;
+  }
+}
 
-  const programName = await app();
-  header.textContent = programName;
-};
+const Application = document.getElementById('app');
 
-document.addEventListener('DOMContentLoaded', startApp);
+ReactDOM.render(<Index />, Application);
